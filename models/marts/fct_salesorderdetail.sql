@@ -1,6 +1,17 @@
-WITH SALESORDERDETAIL AS (
+with stg_salesorderdetail as (
+    SELECT * 
+    FROM {{ source('fivetran_database', 'salesorderdetail') }}
+),
 
+stg_salesorderheader as (
+    SELECT * 
+    FROM {{ source('fivetran_database', 'salesorderheader') }}
+),
+
+
+FINAL AS (
     SELECT
+    {{ dbt_utils.generate_surrogate_key(['SH.salesorderid', 'SD.salesorderdetailid']) }} as sales_key,
     SD.SalesOrderDetailID AS SalesOrderDetailKey,
     SH.SalesOrderID AS SalesOrderKey,
     SD.ProductID AS ProductKey,
@@ -27,14 +38,9 @@ WITH SALESORDERDETAIL AS (
     SH.TaxAmt AS SalesOrderTaxAmount,
     SH.Freight AS SalesOrderFreightAmount,
     SH.TotalDue AS SalesOrderTotalDueAmount
-    FROM FIVETRAN_DATABASE.AZURE_SQL_DB_SALESLT.SALESORDERDETAIL SD
-    LEFT JOIN FIVETRAN_DATABASE.AZURE_SQL_DB_SALESLT.SALESORDERHEADER SH ON SD.SalesOrderID = SH.SalesOrderID
-),
-
-FINAL AS (
-
-    SELECT *
-    FROM SALESORDERDETAIL
+    FROM stg_salesorderdetail SD
+    LEFT JOIN stg_salesorderheader SH ON SD.SalesOrderID = SH.SalesOrderID
 )
+
 
 SELECT * FROM FINAL

@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: fct_sales
+    columns:
+
+      - name: sales_key
+        description: The surrogate key of the fct salesorderdetail
+        tests:
+          - not_null
+          - unique
+
+      - name: salesorderid
+        description: The natural key of the saleorderheader
+        tests:
+          - not_null
+
+      - name: salesorderdetailid
+        description: The natural key of the salesorderdetail
+        tests:
+          - not_null
+    
+
+      - name: unitprice
+        description: The unit price of the product 
+        tests:
+          - not_null
