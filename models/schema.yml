@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: fivetran_database
+    config:
+      enabled: true
+    description: 'The adventure works oltp database provided by Microsoft'
+    database: fivetran_database  
+    schema: azure_sql_db_saleslt  
+    tables:
+      - name: product
+      - name: productcategory
+        description: 'Details about the product category.'
+      - name: salesorderheader
+        description: The order header details for sales.
+      - name: salesorderdetail
+        description: The order details for all sales.
