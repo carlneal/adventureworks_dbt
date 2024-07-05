@@ -1,3 +1,5 @@
+{{ config(schema='CURATED') }}
+
 with stg_product as (
     select *
     from {{ source('fivetran_database', 'product') }}

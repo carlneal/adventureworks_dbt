@@ -1,3 +1,5 @@
+{{ config(schema='CURATED') }}
+
 with stg_salesorderdetail as (
     SELECT * 
     FROM {{ source('fivetran_database', 'salesorderdetail') }}
