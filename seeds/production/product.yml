@@ -3,7 +3,7 @@ version: 2
 seeds: 
   - name: product
     config: 
-      schema: production
+      schema: RAW
       column_types: 
         productid: integer
         name: varchar

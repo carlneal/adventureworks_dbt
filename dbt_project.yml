@@ -37,6 +37,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   adventurworks:
-    # Applies to all files under models/example/
-    +materialized: view
-    +schema: RAW
+    marts:
+      # Applies to all files under models/example/
+      +materialized: view
+      +schema: RAW
