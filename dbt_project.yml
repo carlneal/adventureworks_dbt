@@ -40,4 +40,4 @@ models:
     marts:
       # Applies to all files under models/example/
       +materialized: view
-      +schema: RAW
+      +schema: CURATED

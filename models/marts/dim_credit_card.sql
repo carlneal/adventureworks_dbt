@@ -1,3 +1,5 @@
+{{ config(schema='CURATED') }}
+
 with stg_salesorderheader as (
     select distinct creditcardid
     from {{ ref('salesorderheader') }}
