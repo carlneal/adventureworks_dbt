@@ -1,10 +1,10 @@
 version: 2
 
 models:
-  - name: fct_sales
+  - name: fct_salesorderdetail
     columns:
 
-      - name: sales_key
+      - name: sales_keyv2
         description: The surrogate key of the fct salesorderdetail
         tests:
           - not_null
