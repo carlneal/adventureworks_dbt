@@ -10,12 +10,12 @@ models:
           - not_null
           - unique
 
-      - name: salesorderid
+      - name: SalesOrderKey
         description: The natural key of the saleorderheader
         tests:
           - not_null
 
-      - name: salesorderdetailid
+      - name: SalesOrderDetailKey
         description: The natural key of the salesorderdetail
         tests:
           - not_null
