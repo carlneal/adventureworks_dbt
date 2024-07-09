@@ -13,7 +13,7 @@ stg_salesorderheader as (
 
 FINAL AS (
     SELECT
-    {{ dbt_utils.generate_surrogate_key(['SH.salesorderid', 'SD.salesorderdetailid']) }} as sales_key,
+    {{ dbt_utils.generate_surrogate_key(['SH.salesorderid', 'SD.salesorderdetailid']) }} as sales_keyv2,
     SD.SalesOrderDetailID AS SalesOrderDetailKey,
     SH.SalesOrderID AS SalesOrderKey,
     SD.ProductID AS ProductKey,
