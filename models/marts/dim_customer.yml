@@ -5,13 +5,13 @@ models:
     columns:
       - name: customer_key
         description: The surrogate key of the customer
-        tests:
+        data_tests:
           - unique
           - not_null
 
       - name: customerid
         description: The natural key of the customer
-        tests:
+        data_tests:
           - not_null
           - unique
           

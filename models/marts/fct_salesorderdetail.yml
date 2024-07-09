@@ -6,22 +6,22 @@ models:
 
       - name: sales_keyv2
         description: The surrogate key of the fct salesorderdetail
-        tests:
+        data_tests:
           - not_null
           - unique
 
       - name: SalesOrderKey
         description: The natural key of the saleorderheader
-        tests:
+        data_tests:
           - not_null
 
       - name: SalesOrderDetailKey
         description: The natural key of the salesorderdetail
-        tests:
+        data_tests:
           - not_null
     
 
       - name: unitprice
         description: The unit price of the product 
-        tests:
+        data_tests:
           - not_null

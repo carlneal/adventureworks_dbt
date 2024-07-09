@@ -5,12 +5,12 @@ models:
     columns:
       - name: order_status_key
         description: The surrogate key of the order status 
-        tests:
+        data_tests:
           - unique
           - not_null
 
       - name: order_status
         description: The natural key of the order status table 
-        tests:
+        data_tests:
           - not_null
           - unique
