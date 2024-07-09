@@ -39,7 +39,8 @@ FINAL AS (
     SH.SubTotal AS SalesOrderSubTotal,
     SH.TaxAmt AS SalesOrderTaxAmount,
     SH.Freight AS SalesOrderFreightAmount,
-    SH.TotalDue AS SalesOrderTotalDueAmount
+    SH.TotalDue AS SalesOrderTotalDueAmount,
+    SH.OrderDate As SalesOrderDate
     FROM stg_salesorderdetail SD
     LEFT JOIN stg_salesorderheader SH ON SD.SalesOrderID = SH.SalesOrderID
 )
