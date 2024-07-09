@@ -43,5 +43,5 @@ models:
       +schema: CURATED
     staging:
       # Applies to all files under models/example/
-      +materialized: tables
+      +materialized: table
       +schema: CURATED
