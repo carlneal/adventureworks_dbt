@@ -5,15 +5,15 @@ models:
     columns:
       - name: product_key 
         description: The surrogate key of the product
-        tests:
+        data_tests:
           - not_null
           - unique
       - name: productid 
         description: The natural key of the product
-        tests:
+        data_tests:
           - not_null
           - unique
       - name: product_name 
         description: The product name
-        tests:
+        data_tests:
           - not_null
