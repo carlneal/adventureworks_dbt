@@ -1,0 +1,60 @@
+version: 2
+
+semantic_models:
+  - name: fct_salesorderdetail
+    defaults:
+      agg_time_dimension: salesorderdate
+    description: |
+      Sales Order fact table. This table's grain is one row per order.
+    model: ref('fct_salesorderdetail')
+    # Newly Added
+    entities:
+      - name: sales_keyv2
+        type: primary
+      - name: salesordercustomerkey
+        type: foreign
+    dimensions:
+      - name: salesorderdate
+        type: time
+        type_params:
+          time_granularity: day
+    measures:
+      - name: order_total
+        description: The total maount for each order including taxes.
+        agg: sum
+        expr: amount
+      - name: order_count
+        expr: 1
+        agg: sum
+      - name: customers_with_orders
+        description: Distinct count of customes placing orders
+        agg: count_distinct
+        expr: salesordercustomerkey
+      # - name: order_value_p99 ## The 99th percentile order value
+      #   expr: salesordertotaldueamount
+      #   agg: percentile
+      #     percentile: 0.99
+      #     use_discrete_percentile: True
+      #     use_approximate_percentile: False
+
+metrics:
+  - name: "order_total"
+    description: "Sum of orders value"
+    type: simple
+    label: "order_total"
+    type_params: 
+      measure: order_total
+  - name: "order_count"
+    description: "number of orders"
+    type: simple
+    label: "order_count"
+    type_params:
+      measure: order_count
+  # Cumulative type metrics
+  - name: "cumulative_order_amount_mtd"
+    label: "cumulative_order_amount_mtd"
+    description: "The month to date value of all orders"
+    type: cumulative
+    type_params:
+      measure: order_total
+      grain_to_date: month

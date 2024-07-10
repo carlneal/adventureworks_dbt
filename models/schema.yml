@@ -15,3 +15,12 @@ sources:
         description: The order header details for sales.
       - name: salesorderdetail
         description: The order details for all sales.
+  - name: adventurworks
+    config:
+      enabled: true
+    description: 'The adventure works dw created in dbt'
+    database: adventurworks  
+    schema: curated  
+    tables:
+      - name: fct_salesorderdetail
+        description: 'The fact table for all the sales with details.'
