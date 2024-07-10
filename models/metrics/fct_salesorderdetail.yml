@@ -58,3 +58,29 @@ metrics:
     type_params:
       measure: order_total
       grain_to_date: month
+
+models:
+  - name: fct_salesorderdetail
+    columns:
+
+      - name: sales_keyv2
+        description: The surrogate key of the fct salesorderdetail
+        data_tests:
+          - not_null
+          - unique
+
+      - name: SalesOrderKey
+        description: The natural key of the saleorderheader
+        data_tests:
+          - not_null
+
+      - name: SalesOrderDetailKey
+        description: The natural key of the salesorderdetail
+        data_tests:
+          - not_null
+    
+
+      - name: unitprice
+        description: The unit price of the product 
+        data_tests:
+          - not_null
