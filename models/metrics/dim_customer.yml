@@ -1,5 +1,18 @@
 version: 2
 
+
+# semantic_models:
+#   - name: customers
+#     defaults:
+#       agg_time_dimension: most_recent_order_date
+#     description: |
+#       semantic model for dim_customer
+#     model: ref('dim_customer')
+#     entities:
+#       - name: customer
+#         expr: customerid
+#         type: primary
+
 models:
   - name: dim_customer
     columns:
