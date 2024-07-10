@@ -1,4 +1,4 @@
-{{ config(schema='CURATED', materialized='table') }}
+{{ config(materialized='table') }}
 
 with stg_salesorderdetail as (
     SELECT * 
