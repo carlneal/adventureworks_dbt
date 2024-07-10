@@ -7,6 +7,10 @@ sources:
     description: 'The adventure works oltp database provided by Microsoft'
     database: fivetran_database  
     schema: azure_sql_db_saleslt  
+    freshness:
+      warn_after: {count: 5, period: day}
+      error_after: {count: 30, period: day}
+    loaded_at_field: _FIVETRAN_SYNCED
     tables:
       - name: product
       - name: productcategory
